@@ -470,7 +470,8 @@
                         </tags>
                     </to>
                 </configuration>
-                        <groupId>org.jacoco</groupId>
+                <Plugin>     
+                <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
                 <executions>
