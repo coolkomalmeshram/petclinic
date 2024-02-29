@@ -20,14 +20,6 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-    
-        <!-- JaCoCo Properties -->
-        <jacoco.version>0.8.6</jacoco.version>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-        <sonar.language>java</sonar.language>
-    
         <!-- Spring -->
         <!-- For framework compatibility, refer to the Spring Boot Dependencies BOM -->
         <!-- https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-dependencies/build.gradle -->
@@ -99,11 +91,6 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-              <dependency>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.6</version>
-              </dependency> 
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-bom</artifactId>
@@ -141,11 +128,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-        </dependency>
-             dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.6</version>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
@@ -345,28 +327,7 @@
                     </includes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-site</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
-  
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -385,7 +346,7 @@
                     <downloadJavadocs>true</downloadJavadocs>
                     <wtpversion>2.0</wtpversion>
                     <sourceIncludes>
-            <sourceInclude>**/*.*</sourceInclude>
+                        <sourceInclude>**/*.*</sourceInclude>
                     </sourceIncludes>
                     <additionalBuildcommands>
                         <buildCommand>
@@ -490,24 +451,6 @@
                 <version>${docker.jib-maven-plugin.version}</version>
                 <configuration>
                     <to>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
-                <executions>
-                    <execution>
-                        <id>jacoco-initialize</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-site</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
                         <image>docker.io/${docker.image.prefix}/${project.artifactId}</image>
                         <tags>
                             <tag>${project.version}</tag>
