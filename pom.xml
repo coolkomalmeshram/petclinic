@@ -569,11 +569,6 @@
         </profile>
    </profiles>
 
-<repository>
-  <id>maven-releases</id>
-  <name>maven-releases</name>
-  <url>http://192.168.0.7:8081/repository/maven-releases/</url>
-</repository>
          
     <repositories>
         <repository>
@@ -583,5 +578,10 @@
         </repository>
     </repositories>
 
+<repository>
+  <id>maven-releases</id>
+  <name>maven-releases</name>
+  <url>http://192.168.0.7:8081/repository/maven-releases/</url>
+</repository>
 </project>
 
